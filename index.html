@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voranmeldung zur Presssack Open des TSV 1860 Hanau Bowling">
+  <title>Presssack Open – Voranmeldung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+      <div class="club-line">TSV 1860 Hanau Bowling</div>
+
+      <div class="bowling-symbol" aria-hidden="true">
+        <span class="pin">●</span>
+        <span class="ball">●</span>
+      </div>
+
+      <h1>Presssack Open</h1>
+      <p class="subtitle">Voranmeldung</p>
+
+      <p class="intro">
+        Bitte Namen eintragen, gewünschten Start auswählen und die Anmeldung absenden.
+      </p>
+
+      <form action="https://formsubmit.co/stephan@rsconline.de" method="POST">
+        <input type="hidden" name="_subject" value="Neue Voranmeldung – Presssack Open">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="hidden-field" tabindex="-1" autocomplete="off">
+
+        <div class="form-group">
+          <label for="name">Name des Spielers / Teams</label>
+          <input
+            type="text"
+            id="name"
+            name="Name"
+            placeholder="Vor- und Nachname"
+            autocomplete="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="start">Gewünschter Start</label>
+          <select id="start" name="Start" required>
+            <option value="" selected disabled>Bitte Start auswählen</option>
+            <option value="Start 1">Start 1</option>
+            <option value="Start 2">Start 2</option>
+            <option value="Start 3">Start 3</option>
+            <option value="Start 4">Start 4</option>
+            <option value="Start 5">Start 5</option>
+            <option value="Start 6">Start 6</option>
+            <option value="Start 7">Start 7</option>
+            <option value="Start 8">Start 8</option>
+            <option value="Start 9">Start 9</option>
+            <option value="Start 10">Start 10</option>
+            <option value="Start 11">Start 11</option>
+            <option value="Start 12">Start 12</option>
+            <option value="Start 13">Start 13</option>
+            <option value="Start 14">Start 14</option>
+            <option value="Start 15">Start 15</option>
+            <option value="Start 16">Start 16</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="nachricht">Bemerkung <span>(freiwillig)</span></label>
+          <textarea
+            id="nachricht"
+            name="Bemerkung"
+            rows="3"
+            placeholder="Zum Beispiel Partnername oder Rückfrage"
+          ></textarea>
+        </div>
+
+        <label class="privacy">
+          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
+          <span>
+            Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der
+            Turnieranmeldung per E-Mail übermittelt werden.
+          </span>
+        </label>
+
+        <button type="submit">Anmeldung absenden</button>
+      </form>
+
+      <p class="notice">
+        Die Anmeldung ist zunächst eine Voranmeldung. Eine Bestätigung erfolgt durch den Veranstalter.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
