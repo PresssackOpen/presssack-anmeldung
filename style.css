@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 :root {
   --blue: #1557a6;
@@ -16,24 +14,21 @@ body {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at top left, rgba(21, 87, 166, 0.13), transparent 35%),
-    linear-gradient(135deg, #eef3f8, #ffffff);
+  background: linear-gradient(135deg, #eef3f8, #ffffff);
 }
 
 .page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: 28px 14px;
 }
 
 .card {
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
   padding: 32px;
-  background: #ffffff;
+  background: white;
   border-top: 8px solid var(--blue);
   border-radius: 14px;
   box-shadow: 0 12px 35px rgba(25, 45, 70, 0.18);
@@ -43,58 +38,30 @@ body {
   text-align: center;
   color: var(--dark-blue);
   font-weight: 700;
-  letter-spacing: 0.4px;
-}
-
-.bowling-symbol {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  margin: 16px 0 4px;
-  font-size: 34px;
-  line-height: 1;
-}
-
-.pin {
-  color: var(--red);
-  transform: scaleX(0.55) scaleY(1.35);
-}
-
-.ball {
-  color: var(--blue);
 }
 
 h1 {
-  margin: 10px 0 0;
+  margin: 16px 0 0;
   text-align: center;
   color: var(--blue);
-  font-size: clamp(30px, 7vw, 44px);
-  line-height: 1.05;
+  font-size: 42px;
 }
 
 .subtitle {
-  margin: 6px 0 22px;
+  margin: 6px 0 24px;
   text-align: center;
   color: var(--red);
   font-size: 22px;
   font-weight: 700;
 }
 
-.intro {
-  margin: 0 0 24px;
-  text-align: center;
-  line-height: 1.5;
-}
+.form-group { margin-bottom: 18px; }
 
-.form-group {
-  margin-bottom: 18px;
-}
+label, legend { font-weight: 700; }
 
 label {
   display: block;
   margin-bottom: 7px;
-  font-weight: 700;
 }
 
 label span {
@@ -103,31 +70,76 @@ label span {
 }
 
 input[type="text"],
-select,
+input[type="email"],
 textarea {
   width: 100%;
   padding: 13px 14px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #ffffff;
-  color: var(--text);
   font: inherit;
 }
 
-input[type="text"]:focus,
-select:focus,
+input:focus,
 textarea:focus {
   outline: 3px solid rgba(21, 87, 166, 0.16);
   border-color: var(--blue);
 }
 
-textarea {
-  resize: vertical;
+.field-note {
+  margin: 7px 0 0;
+  color: #66717e;
+  font-size: 13px;
+}
+
+.starts {
+  margin: 6px 0 20px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.starts legend {
+  padding: 0 8px;
+  color: var(--dark-blue);
+  font-size: 18px;
+}
+
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 16px;
+  margin-top: 15px;
+}
+
+.start-grid label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #d8e0e8;
+  border-radius: 7px;
+  background: #f8fafc;
+  cursor: pointer;
+}
+
+.start-grid input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.error-message {
+  margin: 14px 0 0;
+  padding: 10px;
+  border-left: 4px solid var(--red);
+  background: #fff1f1;
+  color: #8c151a;
+  font-weight: 700;
 }
 
 .privacy {
   display: flex;
-  align-items: flex-start;
   gap: 10px;
   margin: 4px 0 20px;
   font-size: 14px;
@@ -139,29 +151,21 @@ textarea {
   width: 18px;
   height: 18px;
   margin: 1px 0 0;
-  flex: 0 0 auto;
 }
 
 button {
   width: 100%;
-  padding: 14px 18px;
+  padding: 14px;
   border: 0;
   border-radius: 8px;
   background: var(--blue);
-  color: #ffffff;
+  color: white;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
 }
 
-button:hover {
-  background: var(--dark-blue);
-}
-
-button:active {
-  transform: translateY(1px);
-}
+button:hover { background: var(--dark-blue); }
 
 .notice {
   margin: 20px 0 0;
@@ -169,15 +173,12 @@ button:active {
   border-left: 4px solid var(--red);
   background: var(--light);
   font-size: 14px;
-  line-height: 1.45;
 }
 
-.hidden-field {
-  display: none !important;
-}
+.hidden-field { display: none !important; }
 
 @media (max-width: 560px) {
-  .card {
-    padding: 24px 18px;
-  }
+  .card { padding: 24px 18px; }
+  .start-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 34px; }
 }
