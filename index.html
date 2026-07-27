@@ -43,29 +43,29 @@
 
         <fieldset class="starts">
           <legend>Gewünschte Starts</legend>
-          <p class="field-note">Es können mehrere Starts ausgewählt werden.</p>
+          <p class="field-note">Bitte genau einen Start auswählen.</p>
 
           <div class="start-grid">
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 1"> Start 1</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 2"> Start 2</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 3"> Start 3</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 4"> Start 4</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 5"> Start 5</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 6"> Start 6</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 7"> Start 7</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 8"> Start 8</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 9"> Start 9</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 10"> Start 10</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 11"> Start 11</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 12"> Start 12</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 13"> Start 13</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 14"> Start 14</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 15"> Start 15</label>
-            <label><input type="checkbox" name="Gewünschte Starts[]" value="Start 16"> Start 16</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 1" required> Start 1</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 2"> Start 2</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 3"> Start 3</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 4"> Start 4</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 5"> Start 5</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 6"> Start 6</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 7"> Start 7</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 8"> Start 8</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 9"> Start 9</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 10"> Start 10</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 11"> Start 11</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 12"> Start 12</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 13"> Start 13</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 14"> Start 14</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 15"> Start 15</label>
+            <label><input type="radio" name="Gewünschter Start" value="Start 16"> Start 16</label>
           </div>
 
           <p id="startFehler" class="error-message" hidden>
-            Bitte mindestens einen Start auswählen.
+            Bitte einen Start auswählen.
           </p>
         </fieldset>
 
@@ -91,7 +91,7 @@
 
   <script>
     const form = document.getElementById("anmeldungForm");
-    const starts = document.querySelectorAll('input[name="Gewünschte Starts[]"]');
+    const starts = document.querySelectorAll('input[name="Gewünschter Start"]');
     const fehler = document.getElementById("startFehler");
 
     form.addEventListener("submit", function(event) {
