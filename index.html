@@ -3,113 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Voranmeldung zur Presssack Open des TSV 1860 Hanau Bowling">
   <title>Presssack Open – Voranmeldung</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="page">
     <section class="card">
-      <div class="club-line">TSV 1860 Hanau Bowling</div>
-      <h1>Presssack Open</h1>
-      <p class="subtitle">Voranmeldung</p>
+      <header class="header">
+        <div class="club">TSV 1860 Hanau Bowling</div>
 
-      <form id="anmeldungForm" action="https://formsubmit.co/stephan@rsconline.de" method="POST">
+        <div class="bowling-mark" aria-hidden="true">
+          <div class="pin pin-left"></div>
+          <div class="pin pin-center"></div>
+          <div class="pin pin-right"></div>
+          <div class="ball">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+
+        <h1>Presssack Open</h1>
+        <p>Online-Voranmeldung</p>
+      </header>
+
+      <form id="anmeldungForm"
+            action="https://formsubmit.co/stephan@rsconline.de"
+            method="POST">
+
         <input type="hidden" name="_subject" value="Neue Voranmeldung – Presssack Open">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://presssackopen.github.io/presssack-anmeldung/">
+        <input type="hidden" id="startZusammenfassung" name="Gewünschte Starts und Teams">
         <input type="text" name="_honey" class="hidden-field" tabindex="-1" autocomplete="off">
 
-        <div class="form-group">
-          <label for="spieler1">Spieler 1 oder Teamname</label>
-          <input type="text" id="spieler1" name="Spieler 1"
-                 placeholder="Zum Beispiel Peter Stephan oder Team Test" required>
-        </div>
+        <section class="form-section">
+          <h2>Teamdaten</h2>
 
-        <div class="form-group">
-          <label for="spieler2">Spieler 2 oder Teamname</label>
-          <input type="text" id="spieler2" name="Spieler 2"
-                 placeholder="Zum Beispiel Max Mustermann oder Team Test" required>
-          <p class="field-note">
-            Derselbe Eintrag darf in beiden Feldern stehen, zum Beispiel zweimal „Team Test“.
-          </p>
-        </div>
-
-        <div class="form-group">
-          <label for="email">E-Mail-Adresse <span>(freiwillig)</span></label>
-          <input type="email" id="email" name="E-Mail-Adresse"
-                 placeholder="name@beispiel.de">
-        </div>
-
-        <fieldset class="starts">
-          <legend>Gewünschte Starts</legend>
-          <p class="field-note">Bitte genau einen Start auswählen.</p>
-
-          <div class="start-grid">
-            <label><input type="radio" name="Gewünschter Start" value="Start 1" required> Start 1</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 2"> Start 2</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 3"> Start 3</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 4"> Start 4</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 5"> Start 5</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 6"> Start 6</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 7"> Start 7</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 8"> Start 8</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 9"> Start 9</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 10"> Start 10</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 11"> Start 11</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 12"> Start 12</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 13"> Start 13</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 14"> Start 14</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 15"> Start 15</label>
-            <label><input type="radio" name="Gewünschter Start" value="Start 16"> Start 16</label>
+          <div class="form-group">
+            <label for="spieler1">Spieler 1 oder Teamname <strong>*</strong></label>
+            <input
+              type="text"
+              id="spieler1"
+              name="Spieler 1"
+              placeholder="Vorname, Nachname oder Teamname"
+              required
+            >
           </div>
 
-          <p id="startFehler" class="error-message" hidden>
-            Bitte einen Start auswählen.
-          </p>
-        </fieldset>
+          <div class="form-group">
+            <label for="spieler2">Spieler 2 oder Teamname <strong>*</strong></label>
+            <input
+              type="text"
+              id="spieler2"
+              name="Spieler 2"
+              placeholder="Vorname, Nachname oder Teamname"
+              required
+            >
+            <p class="help">
+              Derselbe Eintrag darf in beiden Feldern stehen, zum Beispiel zweimal „Team Test“.
+            </p>
+          </div>
 
-        <div class="form-group">
-          <label for="nachricht">Bemerkung <span>(freiwillig)</span></label>
-          <textarea id="nachricht" name="Bemerkung" rows="3"
-                    placeholder="Weitere Hinweise"></textarea>
-        </div>
+          <div class="form-group">
+            <label for="email">E-Mail-Adresse <strong>*</strong></label>
+            <input
+              type="email"
+              id="email"
+              name="E-Mail-Adresse"
+              placeholder="name@beispiel.de"
+              autocomplete="email"
+              required
+            >
+          </div>
+        </section>
 
-        <label class="privacy">
-          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
-          <span>Ich bin mit der Übermittlung meiner Angaben zur Bearbeitung der Anmeldung einverstanden.</span>
-        </label>
+        <section class="form-section starts-section">
+          <div class="section-title-row">
+            <div>
+              <h2>Gewünschte Starts</h2>
+              <p>Haken setzen und rechts die Anzahl der Teams eintragen.</p>
+            </div>
+            <div class="legend">
+              <span>Start</span>
+              <span>Teams</span>
+            </div>
+          </div>
 
-        <button type="submit">Anmeldung absenden</button>
+          <div class="start-grid">
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 1"> <span>Start 1</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 1" aria-label="Teams für Start 1">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 2"> <span>Start 2</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 2" aria-label="Teams für Start 2">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 3"> <span>Start 3</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 3" aria-label="Teams für Start 3">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 4"> <span>Start 4</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 4" aria-label="Teams für Start 4">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 5"> <span>Start 5</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 5" aria-label="Teams für Start 5">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 6"> <span>Start 6</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 6" aria-label="Teams für Start 6">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 7"> <span>Start 7</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 7" aria-label="Teams für Start 7">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 8"> <span>Start 8</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 8" aria-label="Teams für Start 8">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 9"> <span>Start 9</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 9" aria-label="Teams für Start 9">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 10"> <span>Start 10</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 10" aria-label="Teams für Start 10">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 11"> <span>Start 11</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 11" aria-label="Teams für Start 11">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 12"> <span>Start 12</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 12" aria-label="Teams für Start 12">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 13"> <span>Start 13</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 13" aria-label="Teams für Start 13">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 14"> <span>Start 14</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 14" aria-label="Teams für Start 14">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 15"> <span>Start 15</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 15" aria-label="Teams für Start 15">
+            </div>
+            <div class="start-row">
+              <label class="start-label"><input type="checkbox" data-start="Start 16"> <span>Start 16</span></label>
+              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 16" aria-label="Teams für Start 16">
+            </div>
+          </div>
+
+          <div id="startFehler" class="error-message" hidden>
+            Bitte mindestens einen Start auswählen und eine Anzahl größer als 0 eintragen.
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="form-group">
+            <label for="bemerkung">Bemerkung <span>(freiwillig)</span></label>
+            <textarea
+              id="bemerkung"
+              name="Bemerkung"
+              rows="4"
+              placeholder="Weitere Hinweise, Namen oder Rückfragen"
+            ></textarea>
+          </div>
+
+          <label class="privacy">
+            <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
+            <span>
+              Ich bin mit der Übermittlung meiner Angaben zur Bearbeitung der Anmeldung einverstanden.
+            </span>
+          </label>
+
+          <button type="submit">Anmeldung absenden</button>
+        </section>
       </form>
 
-      <p class="notice">
+      <footer>
         Die Anmeldung ist zunächst eine Voranmeldung. Eine Bestätigung erfolgt durch den Veranstalter.
-      </p>
+      </footer>
     </section>
   </main>
 
   <script>
     const form = document.getElementById("anmeldungForm");
-    const starts = document.querySelectorAll('input[name="Gewünschter Start"]');
-    const fehler = document.getElementById("startFehler");
+    const rows = document.querySelectorAll(".start-row");
+    const errorBox = document.getElementById("startFehler");
+    const summaryField = document.getElementById("startZusammenfassung");
 
-    form.addEventListener("submit", function(event) {
-      const ausgewaehlt = Array.from(starts).some(box => box.checked);
-      if (!ausgewaehlt) {
-        event.preventDefault();
-        fehler.hidden = false;
-        fehler.scrollIntoView({ behavior: "smooth", block: "center" });
-      } else {
-        fehler.hidden = true;
-      }
+    rows.forEach(row => {
+      const checkbox = row.querySelector('input[type="checkbox"]');
+      const number = row.querySelector('.team-count');
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked && Number(number.value) === 0) {
+          number.value = 1;
+        }
+        if (!checkbox.checked) {
+          number.value = 0;
+        }
+        row.classList.toggle("selected", checkbox.checked);
+        errorBox.hidden = true;
+      });
+
+      number.addEventListener("input", () => {
+        let value = Number(number.value);
+
+        if (value < 0) number.value = 0;
+        if (value > 20) number.value = 20;
+
+        value = Number(number.value);
+        checkbox.checked = value > 0;
+        row.classList.toggle("selected", value > 0);
+        errorBox.hidden = true;
+      });
     });
 
-    starts.forEach(box => box.addEventListener("change", function() {
-      if (Array.from(starts).some(item => item.checked)) {
-        fehler.hidden = true;
+    form.addEventListener("submit", event => {
+      const selected = [];
+
+      rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const number = row.querySelector('.team-count');
+        const startName = checkbox.dataset.start;
+        const count = Number(number.value);
+
+        if (checkbox.checked && count > 0) {
+          selected.push(`${startName}: ${count} ${count === 1 ? "Team" : "Teams"}`);
+        }
+      });
+
+      if (selected.length === 0) {
+        event.preventDefault();
+        errorBox.hidden = false;
+        errorBox.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
       }
-    }));
+
+      summaryField.value = selected.join(" | ");
+    });
   </script>
 </body>
 </html>
