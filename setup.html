@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Presssack Open – Einrichtung</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="header-inner"><div class="pin">🔧</div><div><h1>Einrichtung</h1><p class="subtitle">Publishable Key ohne Datei-Editor einsetzen</p></div></div></header>
+<main>
+<section class="card setup-box">
+<h2>config.js automatisch erstellen</h2>
+<p>Den <strong>Publishable Key</strong> aus Supabase hier einfügen. Niemals den Secret Key verwenden.</p>
+<label for="key">Publishable Key</label>
+<textarea id="key" placeholder="sb_publishable_..."></textarea>
+<div id="meldung" class="message info" hidden></div>
+<div class="actions"><button id="download" class="primary">Fertige config.js herunterladen</button></div>
+</section>
+<section class="card">
+<h2>Danach</h2>
+<p>Die heruntergeladene Datei <strong>config.js</strong> kommt zusammen mit allen anderen Dateien in das GitHub-Repository. Eine vorhandene config.js wird dabei ersetzt.</p>
+</section>
+</main>
+<script>
+document.getElementById("download").addEventListener("click", () => {
+  const key = document.getElementById("key").value.trim();
+  const msg = document.getElementById("meldung");
+  if (!key || key.toLowerCase().includes("secret")) {
+    msg.hidden = false; msg.className = "message error";
+    msg.textContent = "Bitte den Publishable Key einsetzen, nicht den Secret Key.";
+    return;
+  }
+  const content = `window.PRESSSACK_CONFIG = {
+  SUPABASE_URL: "https://ossjtwygwyurydoawuyl.supabase.co",
+  SUPABASE_ANON_KEY: "${key.replaceAll('"','')}"
+};\n`;
+  const blob = new Blob([content], {type: "text/javascript"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "config.js";
+  a.click();
+  URL.revokeObjectURL(a.href);
+  msg.hidden = false; msg.className = "message success";
+  msg.textContent = "Die fertige config.js wurde heruntergeladen.";
+});
+</script>
+</body>
+</html>

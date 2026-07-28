@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Presssack Open – Verwaltung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bowling-background">
+<div class="outside-sponsors" aria-label="Sponsoren">
+  <a class="outside-sponsor outside-left"
+     href="https://www.hansabowl.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/hansabowl.jpg" alt="Hansa Bowl Hanau">
+  </a>
+
+  <a class="outside-sponsor outside-right"
+     href="https://breakpoint-proshop.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/breakpoint.jpg" alt="Breakpoint Bowling Service">
+  </a>
+</div>
+
+<header class="site-header">
+  <div class="bowling-stripe"></div>
+
+  <div class="header-inner simple-header">
+    <div class="header-center">
+      <p class="eyebrow">TSV 1860 Hanau Bowling präsentiert</p>
+      <h1 id="turnierTitel">PRESSSACK OPEN 2027</h1>
+      <p class="subtitle">Das traditionelle Doppelturnier an Fronleichnam</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Anmeldung</a>
+    <a href="meldeliste.html">Meldeliste</a>
+    <a class="active" href="admin.html">Verwaltung</a>
+  </nav>
+</header>
+
+<main>
+  <section id="loginCard" class="card">
+    <h2>Verwaltung anmelden</h2>
+    <div id="loginMeldung" class="message info" hidden></div>
+    <form id="loginForm" class="grid">
+      <div>
+        <label for="loginEmail">E-Mail</label>
+        <input id="loginEmail" type="email" value="stephan@rsconline.de" required>
+      </div>
+      <div>
+        <label for="loginPasswort">Passwort</label>
+        <input id="loginPasswort" type="password" required>
+      </div>
+      <div class="full actions">
+        <button class="primary" type="submit">Anmelden</button>
+      </div>
+    </form>
+  </section>
+
+  <section id="adminArea" class="hidden">
+    <section class="card">
+      <h2>Turnier-Einstellungen</h2>
+      <div id="settingsMeldung" class="message info" hidden></div>
+      <form id="settingsForm" class="grid">
+        <div>
+          <label for="turniername">Turniername</label>
+          <input id="turniername" required>
+        </div>
+        <div>
+          <label for="turnierjahr">Turnierjahr</label>
+          <input id="turnierjahr" type="number" min="2026" max="2100" required>
+        </div>
+        <div>
+          <label for="maxTeams">Teamplätze je Start</label>
+          <input id="maxTeams" type="number" min="1" max="50" required>
+        </div>
+        <div class="actions">
+          <button class="success" type="submit">Einstellungen speichern</button>
+          <button id="logoutBtn" class="secondary" type="button">Abmelden</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Anmeldungen verwalten</h2>
+      <div id="adminMeldung" class="message info" hidden></div>
+      <div class="actions">
+        <button id="neuLadenBtn" class="secondary" type="button">Neu laden</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr>
+            <th>Status</th><th>Start</th><th>Spieler 1</th><th>Spieler 2</th>
+            <th>Teams</th><th>E-Mail</th><th>Telefon</th><th>Bemerkung</th><th>Aktionen</th>
+          </tr></thead>
+          <tbody id="adminBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+<footer>Presssack Open · TSV 1860 Hanau Bowling</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="common.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

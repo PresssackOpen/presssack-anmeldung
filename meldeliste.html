@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Presssack Open – Meldeliste</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bowling-background">
+<div class="outside-sponsors" aria-label="Sponsoren">
+  <a class="outside-sponsor outside-left"
+     href="https://www.hansabowl.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/hansabowl.jpg" alt="Hansa Bowl Hanau">
+  </a>
+
+  <a class="outside-sponsor outside-right"
+     href="https://breakpoint-proshop.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/breakpoint.jpg" alt="Breakpoint Bowling Service">
+  </a>
+</div>
+
+<header class="site-header">
+  <div class="bowling-stripe"></div>
+
+  <div class="header-inner simple-header">
+    <div class="header-center">
+      <p class="eyebrow">TSV 1860 Hanau Bowling präsentiert</p>
+      <h1 id="turnierTitel">PRESSSACK OPEN 2027</h1>
+      <p class="subtitle">Das traditionelle Doppelturnier an Fronleichnam</p>
+    </div>
+  </div>
+
+  <nav>
+    <a href="index.html">Anmeldung</a>
+    <a class="active" href="meldeliste.html">Meldeliste</a>
+    <a href="admin.html">Verwaltung</a>
+  </nav>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Öffentliche Meldeliste</h2>
+    <p id="datumHinweis"></p>
+    <div id="meldung" class="message info">Meldeliste wird geladen …</div>
+  </section>
+  <div id="listenBereich"></div>
+</main>
+<footer>Presssack Open · TSV 1860 Hanau Bowling</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="common.js"></script>
+<script src="meldeliste.js"></script>
+</body>
+</html>

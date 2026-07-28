@@ -1,254 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Voranmeldung zur Presssack Open des TSV 1860 Hanau Bowling">
-  <title>Presssack Open – Voranmeldung</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Online-Anmeldung für die Presssack Open des TSV 1860 Hanau Bowling">
+  <title>Presssack Open – Anmeldung</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<body class="bowling-background">
+<div class="outside-sponsors" aria-label="Sponsoren">
+  <a class="outside-sponsor outside-left"
+     href="https://www.hansabowl.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/hansabowl.jpg" alt="Hansa Bowl Hanau">
+  </a>
 
-<body>
-  <main class="page">
-    <section class="card">
-      <header class="header">
-        <div class="club">TSV 1860 Hanau Bowling</div>
+  <a class="outside-sponsor outside-right"
+     href="https://breakpoint-proshop.de/"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="bilder/breakpoint.jpg" alt="Breakpoint Bowling Service">
+  </a>
+</div>
+<header class="site-header">
+  <div class="bowling-stripe"></div>
 
-        <div class="bowling-mark" aria-hidden="true">
-          <div class="pin pin-left"></div>
-          <div class="pin pin-center"></div>
-          <div class="pin pin-right"></div>
-          <div class="ball">
-            <span></span><span></span><span></span>
-          </div>
+  <div class="header-inner simple-header">
+    <div class="header-center">
+      <p class="eyebrow">TSV 1860 Hanau Bowling präsentiert</p>
+      <h1 id="turnierTitel">PRESSSACK OPEN 2027</h1>
+      <p class="subtitle">Das traditionelle Doppelturnier an Fronleichnam</p>
+    </div>
+  </div>
+
+  <nav>
+    <a class="active" href="index.html">Anmeldung</a>
+    <a href="meldeliste.html">Meldeliste</a>
+    <a href="admin.html">Verwaltung</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <span class="hero-kicker">Presssack Open <span id="heroJahr"></span></span>
+      <h2>Startplätze bequem online reservieren</h2>
+      <p>Mehrere Starts in einer Anmeldung auswählen. Die Meldeliste wird unmittelbar aktualisiert.</p>
+      <div class="hero-facts">
+        <span>📅 <strong id="heroDatum">Fronleichnam bis Sonntag</strong></span>
+        <span>🎳 16 Starts</span>
+        <span>👥 Doppelturnier</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card form-card">
+    <div class="section-heading">
+      <div>
+        <span class="section-number">1</span>
+        <h2>Teamdaten eintragen</h2>
+      </div>
+      <span class="required-note">* Pflichtfelder</span>
+    </div>
+
+    <div id="configWarnung" class="message error" hidden></div>
+    <div id="meldung" class="message info" hidden></div>
+
+    <form id="anmeldeFormular">
+      <div class="grid">
+        <div>
+          <label for="spieler1">Spieler 1 *</label>
+          <input id="spieler1" maxlength="100" autocomplete="name" required>
         </div>
+        <div>
+          <label for="spieler2">Spieler 2 *</label>
+          <input id="spieler2" maxlength="100" required>
+        </div>
+        <div>
+          <label for="email">E-Mail *</label>
+          <input id="email" type="email" maxlength="160" autocomplete="email" required>
+        </div>
+        <div>
+          <label for="telefon">Telefon</label>
+          <input id="telefon" type="tel" maxlength="50" autocomplete="tel">
+        </div>
+      </div>
 
-        <h1>Presssack Open</h1>
-        <p>Online-Voranmeldung</p>
-      </header>
+      <div class="form-divider"></div>
 
-      <form id="anmeldungForm"
-            action="https://formsubmit.co/stephan@rsconline.de"
-            method="POST">
+      <div class="section-heading compact">
+        <div>
+          <span class="section-number">2</span>
+          <h2>Starts auswählen</h2>
+        </div>
+      </div>
+      <p class="help-text">Haken beim gewünschten Start setzen und rechts die Anzahl der Teams eintragen.</p>
+      <div class="start-list-head">
+        <span></span>
+        <strong>Start</strong>
+        <strong>Datum und Uhrzeit</strong>
+        <strong>Freie Plätze</strong>
+        <strong>Teams</strong>
+      </div>
+      <div id="startAuswahl" class="start-row-list"></div>
 
-        <input type="hidden" name="_subject" value="Neue Voranmeldung – Presssack Open">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://presssackopen.github.io/presssack-anmeldung/">
-        <input type="hidden" name="_url" value="https://presssackopen.github.io/presssack-anmeldung/">
-        <input type="hidden" id="startZusammenfassung" name="Gewünschte Starts und Teams">
-        <input type="text" name="_honey" class="hidden-field" tabindex="-1" autocomplete="off">
+      <div class="grid lower-fields">
+        <div class="full">
+          <label for="bemerkung">Bemerkung</label>
+          <textarea id="bemerkung" maxlength="500" placeholder="Zum Beispiel weitere Spielernamen bei mehreren Teams"></textarea>
+        </div>
+      </div>
 
-        <section class="form-section">
-          <h2>Teamdaten</h2>
+      <div class="privacy-note">
+        🔒 Kontaktdaten sind ausschließlich im geschützten Verwaltungsbereich sichtbar.
+      </div>
 
-          <div class="form-group">
-            <label for="spieler1">Spieler 1 oder Teamname <strong>*</strong></label>
-            <input
-              type="text"
-              id="spieler1"
-              name="Spieler 1"
-              placeholder="Vorname, Nachname oder Teamname"
-              required
-            >
-          </div>
+      <div class="actions form-actions">
+        <button class="primary large-button" type="submit">Verbindlich anmelden</button>
+        <a class="button secondary" href="meldeliste.html">Meldeliste ansehen</a>
+      </div>
+    </form>
+  </section>
 
-          <div class="form-group">
-            <label for="spieler2">Spieler 2 oder Teamname <strong>*</strong></label>
-            <input
-              type="text"
-              id="spieler2"
-              name="Spieler 2"
-              placeholder="Vorname, Nachname oder Teamname"
-              required
-            >
-            <p class="help">
-              Derselbe Eintrag darf in beiden Feldern stehen, zum Beispiel zweimal „Team Test“.
-            </p>
-          </div>
+  <section class="info-grid">
+    <article class="info-card">
+      <span class="info-icon">✓</span>
+      <h3>Sofort eingetragen</h3>
+      <p>Nach erfolgreicher Anmeldung erscheint das Team direkt in der öffentlichen Meldeliste.</p>
+    </article>
+    <article class="info-card">
+      <span class="info-icon">✉</span>
+      <h3>E-Mail-Benachrichtigung</h3>
+      <p>Die Turnierleitung erhält bei jeder neuen Anmeldung automatisch eine Nachricht.</p>
+    </article>
+    <article class="info-card">
+      <span class="info-icon">↔</span>
+      <h3>Änderungen möglich</h3>
+      <p>Die Turnierleitung kann Anmeldungen bearbeiten, verschieben, stornieren oder löschen.</p>
+    </article>
+  </section>
+</main>
 
-          <div class="form-group">
-            <label for="email">E-Mail-Adresse <strong>*</strong></label>
-            <input
-              type="email"
-              id="email"
-              name="E-Mail-Adresse"
-              placeholder="name@beispiel.de"
-              autocomplete="email"
-              required
-            >
-          </div>
-        </section>
+<footer>
+  <strong>Presssack Open</strong> · TSV 1860 Hanau Bowling
+</footer>
 
-        <section class="form-section starts-section">
-          <div class="section-title-row">
-            <div>
-              <h2>Gewünschte Starts</h2>
-              <p>Haken setzen und rechts die Anzahl der Teams eintragen.</p>
-            </div>
-            <div class="legend">
-              <span>Start</span>
-              <span>Teams</span>
-            </div>
-          </div>
-
-          <div class="start-grid">
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 1"> <span>Start 1</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 1" aria-label="Teams für Start 1">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 2"> <span>Start 2</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 2" aria-label="Teams für Start 2">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 3"> <span>Start 3</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 3" aria-label="Teams für Start 3">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 4"> <span>Start 4</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 4" aria-label="Teams für Start 4">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 5"> <span>Start 5</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 5" aria-label="Teams für Start 5">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 6"> <span>Start 6</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 6" aria-label="Teams für Start 6">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 7"> <span>Start 7</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 7" aria-label="Teams für Start 7">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 8"> <span>Start 8</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 8" aria-label="Teams für Start 8">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 9"> <span>Start 9</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 9" aria-label="Teams für Start 9">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 10"> <span>Start 10</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 10" aria-label="Teams für Start 10">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 11"> <span>Start 11</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 11" aria-label="Teams für Start 11">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 12"> <span>Start 12</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 12" aria-label="Teams für Start 12">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 13"> <span>Start 13</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 13" aria-label="Teams für Start 13">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 14"> <span>Start 14</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 14" aria-label="Teams für Start 14">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 15"> <span>Start 15</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 15" aria-label="Teams für Start 15">
-            </div>
-            <div class="start-row">
-              <label class="start-label"><input type="checkbox" data-start="Start 16"> <span>Start 16</span></label>
-              <input class="team-count" type="number" min="0" max="20" value="0" data-start="Start 16" aria-label="Teams für Start 16">
-            </div>
-          </div>
-
-          <div id="startFehler" class="error-message" hidden>
-            Bitte mindestens einen Start auswählen und eine Anzahl größer als 0 eintragen.
-          </div>
-        </section>
-
-        <section class="form-section">
-          <div class="form-group">
-            <label for="bemerkung">Bemerkung <span>(freiwillig)</span></label>
-            <textarea
-              id="bemerkung"
-              name="Bemerkung"
-              rows="4"
-              placeholder="Weitere Hinweise, Namen oder Rückfragen"
-            ></textarea>
-          </div>
-
-          <label class="privacy">
-            <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required>
-            <span>
-              Ich bin mit der Übermittlung meiner Angaben zur Bearbeitung der Anmeldung einverstanden.
-            </span>
-          </label>
-
-          <button type="submit">Anmeldung absenden</button>
-        </section>
-      </form>
-
-      <footer>
-        Die Anmeldung ist zunächst eine Voranmeldung. Eine Bestätigung erfolgt durch den Veranstalter.
-      </footer>
-    </section>
-  </main>
-
-  <script>
-    const form = document.getElementById("anmeldungForm");
-    const rows = document.querySelectorAll(".start-row");
-    const errorBox = document.getElementById("startFehler");
-    const summaryField = document.getElementById("startZusammenfassung");
-
-    rows.forEach(row => {
-      const checkbox = row.querySelector('input[type="checkbox"]');
-      const number = row.querySelector('.team-count');
-
-      checkbox.addEventListener("change", () => {
-        if (checkbox.checked && Number(number.value) === 0) {
-          number.value = 1;
-        }
-        if (!checkbox.checked) {
-          number.value = 0;
-        }
-        row.classList.toggle("selected", checkbox.checked);
-        errorBox.hidden = true;
-      });
-
-      number.addEventListener("input", () => {
-        let value = Number(number.value);
-
-        if (value < 0) number.value = 0;
-        if (value > 20) number.value = 20;
-
-        value = Number(number.value);
-        checkbox.checked = value > 0;
-        row.classList.toggle("selected", value > 0);
-        errorBox.hidden = true;
-      });
-    });
-
-    form.addEventListener("submit", event => {
-      const selected = [];
-
-      rows.forEach(row => {
-        const checkbox = row.querySelector('input[type="checkbox"]');
-        const number = row.querySelector('.team-count');
-        const startName = checkbox.dataset.start;
-        const count = Number(number.value);
-
-        if (checkbox.checked && count > 0) {
-          selected.push(`${startName}: ${count} ${count === 1 ? "Team" : "Teams"}`);
-        }
-      });
-
-      if (selected.length === 0) {
-        event.preventDefault();
-        errorBox.hidden = false;
-        errorBox.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
-      }
-
-      summaryField.value = selected.join(" | ");
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
