@@ -68,3 +68,10 @@ NEUE ANORDNUNG:
 - Breakpoint außen rechts.
 - Der Turniertitel bleibt frei in der Mitte.
 - Auf kleineren Bildschirmen stehen die Sponsoren automatisch unter dem Kopfbereich.
+
+
+HANDY-OPTIMIERUNG:
+- Sponsoren stehen auf dem Handy kompakt nebeneinander.
+- Kopfbereich und Menü sind kleiner und übersichtlicher.
+- Starttabelle und Eingabefelder wurden für schmale Bildschirme angepasst.
+- Der Hintergrund ist auf dem Handy deutlich dezenter.

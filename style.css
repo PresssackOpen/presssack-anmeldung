@@ -1088,3 +1088,153 @@ body.bowling-background::before {
     max-width:360px!important;
   }
 }
+
+
+/* Mobile Optimierung */
+@media (max-width: 700px) {
+  body.bowling-background {
+    background:
+      linear-gradient(rgba(248,250,252,.96), rgba(255,255,255,.98)),
+      url("bilder/tsv_bowling_hintergrund.jpg") center top / 700px auto no-repeat;
+  }
+
+  .simple-header {
+    width: calc(100% - 24px) !important;
+    padding: 16px 0 12px !important;
+  }
+
+  .simple-header .eyebrow {
+    font-size: .72rem !important;
+    margin-bottom: 5px !important;
+  }
+
+  .simple-header h1 {
+    font-size: clamp(1.65rem, 9vw, 2.35rem) !important;
+    line-height: 1.05 !important;
+    white-space: normal !important;
+  }
+
+  .simple-header .subtitle {
+    font-size: .9rem !important;
+    margin-top: 7px !important;
+  }
+
+  .site-header nav {
+    width: calc(100% - 20px) !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  .site-header nav a {
+    padding: 9px 4px !important;
+    font-size: .82rem !important;
+    text-align: center;
+  }
+
+  /* Auf dem Handy beide Sponsoren kompakt nebeneinander */
+  .outside-sponsors {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px !important;
+    width: calc(100% - 20px) !important;
+    margin: 12px auto 8px !important;
+    align-items: stretch !important;
+  }
+
+  .outside-sponsor {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    border-width: 2px !important;
+    border-radius: 9px !important;
+    box-shadow: 0 5px 12px rgba(0,0,0,.16) !important;
+  }
+
+  .outside-sponsor img {
+    width: 100% !important;
+    height: 92px !important;
+    min-height: 0 !important;
+    padding: 5px !important;
+    object-fit: contain !important;
+  }
+
+  main,
+  .main-content,
+  .container {
+    width: calc(100% - 16px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .card,
+  .info-card,
+  .hero {
+    border-radius: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Starttabelle auf schmalen Displays lesbarer */
+  .starts-table {
+    font-size: .82rem !important;
+  }
+
+  .starts-table th,
+  .starts-table td {
+    padding: 7px 4px !important;
+  }
+
+  .starts-table input[type="number"] {
+    width: 58px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .outside-sponsor img {
+    height: 78px !important;
+  }
+
+  .site-header nav a {
+    font-size: .75rem !important;
+  }
+
+  .simple-header h1 {
+    font-size: 1.65rem !important;
+  }
+}
+
+/* Werbung unten */
+.outside-sponsors{display:none!important;}
+
+.bottom-sponsors{
+  width:min(900px,calc(100% - 24px));
+  margin:40px auto 30px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.bottom-sponsor{
+  display:block;
+  background:#fff;
+  border:2px solid #ddd;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.bottom-sponsor img{
+  display:block;
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  background:#fff;
+  padding:10px;
+  box-sizing:border-box;
+}
+
+@media(max-width:700px){
+  .bottom-sponsors{margin:24px auto 20px;}
+  .bottom-sponsor img{height:120px;}
+}
