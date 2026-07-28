@@ -75,3 +75,11 @@ HANDY-OPTIMIERUNG:
 - Kopfbereich und Menü sind kleiner und übersichtlicher.
 - Starttabelle und Eingabefelder wurden für schmale Bildschirme angepasst.
 - Der Hintergrund ist auf dem Handy deutlich dezenter.
+
+
+V3 – SAUBERE VERSION:
+- Sponsoren stehen ausschließlich ganz unten.
+- Hansa Bowl und Breakpoint stehen untereinander.
+- Keine feste oder schwebende Position mehr.
+- Auf PC, Tablet und Handy bleibt die Werbung am Seitenende.
+- Alte Sponsor-Regeln wurden vollständig deaktiviert.
